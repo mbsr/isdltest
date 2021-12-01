@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: isdl-deployment
+  labels:
+    app: isdl
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: isdl
+  template:
+    metadata:
+      labels:
+        app: isdl
+    spec:
+      containers:
+      - name: isdltest
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
